@@ -6,9 +6,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.md')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.md')).read()
 
-requires = [
-    'pyramid'
-    ]
+requires = []
 
 setup(name='pyramid_settings',
       version='0.1',
