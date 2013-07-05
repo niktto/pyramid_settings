@@ -1,29 +1,39 @@
+from setuptools import setup
 import os
 
-from setuptools import setup, find_packages
 
-here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.md')).read()
-CHANGES = open(os.path.join(here, 'CHANGES.md')).read()
+def read(filename):
+    """Open a file and return its contents."""
+    with open(os.path.join(os.path.dirname(__file__), filename)) as f:
+        return f.read()
 
-requires = []
 
-setup(name='pyramid_settings',
-      version='0.1',
-      description='Pyramid settings module that lets you use settings.py',
-      long_description=README + '\n\n' + CHANGES,
-      classifiers=[
-        "Programming Language :: Python",
-        "Framework :: Pyramid",
+setup(
+    name='pyramid_settings',
+    version='0.1',
+    description="Pyramid settings module that lets you use settings.py",
+    long_description=read('README.md'),
+    url='http://github.com/niktto/pyramid_settings/',
+    license=read('LICENSE'),
+    author=u'Marek Szwalkiewicz',
+    author_email='marek@szwalkiewicz.waw.pl',
+    packages=['pyramid_settings'],
+    keywords='web pyramid pylons',
+    include_package_data=True,
+    zip_safe=False,
+    platforms='any',
+    install_requires=[],
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
-        ],
-      author='Marek Szwalkiewicz',
-      author_email='marek@szwalkiewicz.waw.pl',
-      url='',
-      keywords='web pyramid pylons',
-      packages=find_packages(),
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=requires,
-      )
+    ],
+)
