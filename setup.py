@@ -10,7 +10,7 @@ def read(filename):
 
 setup(
     name='pyramid_settings',
-    version='0.1',
+    version='0.1.2',
     description="Pyramid settings module that lets you use settings.py",
     long_description=read('README.md'),
     url='http://github.com/niktto/pyramid_settings/',
