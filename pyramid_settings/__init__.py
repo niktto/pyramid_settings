@@ -1,3 +1,8 @@
+"""`pyramid_settings` is simplest package (2 functions to be fair) that enables
+you to load python modules as pyramid settings files.
+
+"""
+
 import sys
 import logging
 from importlib import import_module
@@ -6,7 +11,7 @@ from importlib import import_module
 # sorry for lame name
 def load_settings(parent_module_name, settings, config=None, file_name=None):
     """Load module contents into ``request.registry.settings``.
-    
+
     You need to supply `pysettings` executing argument like this:
 
         $ pserve development.ini pysettings=settings.py
@@ -26,7 +31,7 @@ def load_settings(parent_module_name, settings, config=None, file_name=None):
         additional settings module name.
     :param *file_name: OPTIONAL `string` in which you can pass manually module
         name of your additional settings.
-    
+
     """
     log = logging.getLogger(parent_module_name)
 
@@ -39,7 +44,7 @@ def load_settings(parent_module_name, settings, config=None, file_name=None):
             # This goes out in silence just to not cause issues to user.
             # TODO: Argue with Ignacy about silent catches.
             log.debug('Failed to load settings from executing arguments.')
-            pass
+
         else:
             settings_list = settings_string.split(',')
 
@@ -61,7 +66,7 @@ def load_settings(parent_module_name, settings, config=None, file_name=None):
 
         # Now from ``imported_settings`` object we get all public attributes
         # and parse them nicely into our ``settings`` dict.
-        
+
         # dir will give us all attributes names.
         for attr_name in dir(imported_settings):
 
