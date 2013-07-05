@@ -11,8 +11,6 @@ clean python.
 Usage
 -----
 
-.. code-block::
-
     from pyramid.config import Configurator
 
     from pyramid_settings import load_settings
